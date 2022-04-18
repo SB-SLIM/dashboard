@@ -1,0 +1,28 @@
+@use '../../../scss/abstracts' as *;
+
+.icon--white {
+  path {
+    stroke: white;
+    color: white;
+  }
+  rect{
+    stroke: white;
+  }
+}
+
+.icon--small {
+  width: $icon-size--small;
+  height: $icon-size--small;
+}
+
+.icon--medium {
+  width: $icon-size--medium;
+  height: $icon-size--medium;
+}
+
+.icon--large {
+  width: $icon-size--large;
+  height: $icon-size--large;
+}
+
+

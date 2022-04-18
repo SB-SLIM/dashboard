@@ -1,0 +1,20 @@
+@use '../../../../scss/abstracts/' as *;
+
+.nav-item {
+  padding: 1rem 2rem;
+  border-left: .625rem solid transparent;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.nav-link {
+  text-transform: capitalize;
+}
+
+.nav-item:hover {
+  border-left-color: $clr-primary;
+}
+.nav-item.active{
+  font-weight: bold;
+   border-left-color: $clr-primary;
+}

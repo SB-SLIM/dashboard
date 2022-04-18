@@ -1,0 +1,28 @@
+@use '../../../../../scss/abstracts' as *;
+
+.efficient-Item {
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-default;
+
+  &_info {
+    width: 30%;
+
+    .title {
+      justify-content: flex-start;
+      align-items: center;
+      h6 {
+        display: inline-block;
+      }
+      & > span > span {
+        position: relative;
+        transform: none;
+      }
+    }
+  }
+  &_progress {
+    flex: 1;
+    
+  }
+}

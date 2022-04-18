@@ -1,0 +1,58 @@
+//Colors
+$clr-primary: #109bf8;
+$clr-primary-light: #3faff9;
+$clr-primary-dark: #0b6cad;
+$clr-secondary: #003277;
+$clr-secondary-light: #335b92;
+$clr-secondary-dark: #002353;
+
+$clr-chartBar: linear-gradient(360deg, $clr-secondary, $clr-primary);
+$clr-progressBar: linear-gradient(to right, $clr-primary, $clr-secondary);
+
+
+$body-bg-color: #fafafa;
+
+$clr-black: #000;
+$clr-gray:#E0E3DA;
+$clr-white: #fff;
+
+$borderRadius: 4px;
+$progressBar_BorderRadius: 20px;
+
+//Icons size square
+$icon-size--small: 18px;
+$icon-size--medium: 24px;
+$icon-size--large: 48px;
+
+//MARGIN
+$mx-medium: 1.5rem;
+$mx-small: 1rem;
+$mx-large: 2rem;
+$my-medium: 1rem;
+$my-small: 2rem;
+$my-large: 3rem;
+
+//Padding
+$padding-default: 1rem 2rem;
+
+$px-medium: 1.5rem;
+$px-small: 1rem;
+$px-large: 2rem;
+$py-medium: 1rem;
+$py-small: 0.75rem;
+$py-large: 1.5rem;
+
+// Export to MUI Theme
+:export {
+  //Colors
+  primary: $clr-primary;
+  primaryLight: $clr-primary-light;
+  primaryDark: $clr-primary-dark;
+  secondary: $clr-secondary;
+  secondaryLight: $clr-secondary-light;
+  secondaryDark: $clr-secondary-dark;
+  bodyBgColor: $body-bg-color;
+  charBarColor: $clr-chartBar;
+  //Border Radius
+  borderRadius: $borderRadius;
+}

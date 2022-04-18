@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+:root {
+  // @each $color, $value in $colors {
+  //   --#{$color}: #{$value};
+  // }
+
+  // @each $gray, $value in $grays {
+  //   --clr-gray-#{$gray}: #{$value};
+  // }
+
+  // --fs-html: #{$fs-default};
+  // --ff-body: #{$ff-sans-normal};
+  // --fw-body: #{$fw-normal};
+  // --lh-body: #{$lh-base};
+}

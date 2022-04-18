@@ -1,0 +1,31 @@
+@use '../../../scss/abstracts' as *;
+
+.gradient-box {
+  border-radius: $borderRadius;
+  display: inline-block;
+  align-items: center;
+
+  margin: auto;
+
+  position: relative;
+  box-sizing: border-box;
+
+  $border: 2px;
+  color: inherit;
+  background: local;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background-image: linear-gradient(45deg, $clr-primary, $clr-secondary);
+  }
+}

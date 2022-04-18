@@ -1,0 +1,49 @@
+@use '../../../scss/abstracts' as *;
+
+.datePiker {
+  display: inline-flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px $clr-gray;
+  position: relative;
+  
+  
+
+  &_title {
+    text-transform: uppercase;
+    padding: .25rem 1rem;
+    padding-right: 0.5rem;
+  }
+  &_title::after {
+    content:':'
+  }
+  input{
+   
+  }
+ 
+  .input_icon{
+      position: absolute;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height:100%;
+      width: 40px;
+      cursor: pointer;
+      z-index: -1;
+  }
+}
+
+
+
+::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  color: white;
+  background-image: transparent;
+  fill: white;
+  background-color: $clr-primary;
+  cursor: pointer;
+  padding-inline: .75rem;
+
+}

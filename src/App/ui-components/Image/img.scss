@@ -1,0 +1,13 @@
+@use '../../../scss/abstracts' as *;
+
+.img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ filter: opacity(.5) drop-shadow(0 0 0 $clr-secondary); 
+}
+
+.img--medium {
+}

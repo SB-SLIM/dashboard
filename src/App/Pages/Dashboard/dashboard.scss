@@ -1,0 +1,17 @@
+@use '../../../scss/abstracts' as *;
+.dashboard{
+  &_search{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $padding-default;
+  }
+
+  &_link{
+      --gap: 2rem;
+      grid-template-columns: repeat(3, minmax(max-content, 1fr));
+  }
+  .section-main{
+    
+  }
+}

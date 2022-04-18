@@ -1,0 +1,7 @@
+@use '../../../scss/abstracts' as *;
+
+.card{
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-default;
+}

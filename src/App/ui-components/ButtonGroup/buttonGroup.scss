@@ -1,0 +1,7 @@
+@use '../../../scss/abstracts' as *;
+
+.buttonGroup{
+    &>*{
+        color: inherit !important;
+    }
+}

@@ -1,0 +1,24 @@
+.nav {
+  ul {
+    display: flex;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+.nav--vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  ul {
+    flex-direction: column;
+    width: 100%;
+
+    & > *:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@use "../abstracts" as *;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+html {
+  // font-size: var(--fs-html);
+
+  // @include media-up(md) {
+  //   font-size: calc(var(--fs-html) * 1.2); // fs-default = 12px
+  // }
+
+  // @include media-up(lg) {
+  //   font-size: calc(var(--fs-html) * 1.4); // fs-default = 14px
+  // }
+
+  // @include media-up(xl) {
+  //   font-size: calc(var(--fs-html) * 1.6); // fs-default = 16px
+  // }
+}
+body {
+  font-family: var(--ff-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  color: var(--clr-white);
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p {
+//   font-weight: $fw-normal;
+//   font-size: $fs--400;
+// }
+
+// h1, .h1 {
+//   font-size: $fs--700;
+// }
+
+// h2, .h2 {
+//   font-size: $fs--600;
+// }
+// h3, .h3 {
+//   font-size: $fs--500;
+// }
+// h4, .h4 {
+//   font-size: $fs--400;
+// }
+// h5, .h5 {
+//   font-size: $fs--300;
+// }
+// h6, .h6 {
+//   font-size: $fs--200;
+// }
+
+// .letter-spacing-1 {
+//   letter-spacing: 4.75px;
+// }
+// .letter-spacing-2 {
+//   letter-spacing: 2.7px;
+// }
+// .letter-spacing-3 {
+//   letter-spacing: 2.35px;
+// }
+
+// .uppercase {
+//   text-transform: uppercase;
+// }
+
+// .fs-900 {
+//   font-size: $fs--900;
+// }
+// .fs-800 {
+//   font-size: $fs--800;
+// }
+// .fs-700 {
+//   font-size: $fs--700;
+// }
+// .fs-600 {
+//   font-size: $fs--600;
+// }
+// .fs-500 {
+//   font-size: $fs--500;
+// }
+// .fs-400 {
+//   font-size: $fs--400;
+// }
+// .fs-300 {
+//   font-size: $fs--300;
+// }
+// .fs-200 {
+//   font-size: $fs--200;
+// }
+
+// .fs-900,
+// .fs-800,
+// .fs-700,
+// .fs-600 {
+//   line-height: 1.1;
+// }

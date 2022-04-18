@@ -1,0 +1,29 @@
+.app {
+  display: grid;
+  grid-template-columns:  
+  [side-start] minmax(min-content, 300px) [side-end full-start]  
+  1fr [center-start] 
+  repeat(8, [col-start] minmax(min-content, 12em) [col-end]) 
+  [center-end] 1fr [full-end];
+  // grid-template-columns:  
+  // [side-start] minmax(min-content, 240px) [side-end full-start]  
+  // 1fr [center-start] 
+  // repeat(8, [col-start] minmax(min-content, 12em) [col-end]) 
+  // [center-end] repeat(2, 1fr) [full-end];
+  min-height: 100vh;
+}
+
+.left {
+  grid-column: 1/2;
+}
+
+
+.grid-main-container{
+    grid-column: center-start/center-end;
+}
+
+main,
+.main {
+  // background-color: #FAFAFA;
+  padding: 0 2rem 1rem 2rem;
+}
