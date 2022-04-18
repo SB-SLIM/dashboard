@@ -2,6 +2,7 @@ import { DatePiker, Typography } from "../../../ui-components";
 import "./efficiency.scss";
 import { LinearProgress } from "@mui/material";
 import EfficientItem from "./EfficientItem";
+import { efficiencyData } from "../../../Constants/data";
 
 interface IEEfficiency {
   title: string;
@@ -18,15 +19,22 @@ function Efficiency({ title }: IEEfficiency) {
         </form>
       </div>
       <div className="efficiency_body">
-        <EfficientItem
-          title="Title"
-          subtitle="subtitle"
-          value={15}
-          valueBuffer={20}
-          onClick={() => {
-            return;
-          }}
-        />
+        {efficiencyData.map((item, index) => {
+          const { title, subtitle, value, valueBuffer, countBadge } = item;
+          return (
+            <EfficientItem
+              key={index}
+              title={title}
+              subtitle={subtitle}
+              value={value}
+              countBadge={countBadge}
+              valueBuffer={valueBuffer}
+              onClick={() => {
+                return;
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );

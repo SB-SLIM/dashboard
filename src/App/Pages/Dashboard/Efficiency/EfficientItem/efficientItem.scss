@@ -12,9 +12,11 @@
     .title {
       justify-content: flex-start;
       align-items: center;
+
       h6 {
         display: inline-block;
       }
+      
       & > span > span {
         position: relative;
         transform: none;
@@ -23,6 +25,5 @@
   }
   &_progress {
     flex: 1;
-    
   }
 }

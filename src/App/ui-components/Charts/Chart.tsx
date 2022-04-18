@@ -3,6 +3,7 @@ import "chart.js/auto";
 import { Chart as ChartJs } from "react-chartjs-2";
 import { getGradient } from "./GetGradient";
 import { useEffect, useRef, useState } from "react";
+import "./chart.scss";
 
 function Chart({ type, title, subtitle }: any) {
   const convasRef = useRef(null);
@@ -19,41 +20,42 @@ function Chart({ type, title, subtitle }: any) {
   }, []);
 
   return (
-    <div>
+    <>
       <HeaderChart title={title} subtitle={subtitle} />
-      <ChartJs
-        type={type}
-        id="barChart"
-        ref={convasRef}
-        data={{
-          labels: [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-          ],
-          datasets: [{ ...dataSet }],
-        }}
-        width={600}
-        height={400}
-        options={{
-          responsive: true,
-          plugins: {
-            legend: {
-              display: false,
+
+      <div className="chart-container">
+        <ChartJs
+          type={type}
+          id="barChart"
+          ref={convasRef}
+          data={{
+            labels: [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+            ],
+            datasets: [{ ...dataSet }],
+          }}
+          options={{
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
             },
-          },
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   );
 }
 
