@@ -1,13 +1,43 @@
 @use '../../../scss/abstracts' as *;
 
-.img {
-  width: 100%;
-  height: auto;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
- filter: opacity(.5) drop-shadow(0 0 0 $clr-secondary); 
+.img-root {
+  position: relative;
+  overflow: hidden;
+  .img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform .5s ease;
+  
+  }
+  .img_info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background-image: linear-gradient(
+      to top,
+      rgba($clr-secondary, 0.9) 5%,
+      rgba($clr-secondary, 0.4) 30%,
+      rgba($clr-secondary, 0.2) 40%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    z-index: 1;
+  }
+
+  &:hover img{
+    transform: scale(1.2);
+  }
 }
 
 .img--medium {
+  width: 143px;
+  height: 143px;
 }
