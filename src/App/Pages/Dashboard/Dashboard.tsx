@@ -10,6 +10,7 @@ import {
   ShareIcon,
 } from "../../ui-components";
 import Location from "./Location";
+import Employees from "./Employees";
 
 function Dashboard() {
   return (
@@ -30,7 +31,9 @@ function Dashboard() {
         <div className="g-col-6">
           <Efficiency title="Efficiency" />
         </div>
-        <div className="g-col-9">test</div>
+        <div className="g-col-9">
+          <Employees />
+        </div>
         <div className="g-col-3">
           <Location />
         </div>
