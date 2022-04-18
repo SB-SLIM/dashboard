@@ -21,3 +21,31 @@ export const efficiencyData = [
     countBadge: 15,
   },
 ];
+
+import californiaImg from "../../assets/images/img-california.jpg";
+import texasImg from "../../assets/images/img-texas.jpg";
+import oregonImg from "../../assets/images/img-oregon.jpg";
+import washingtonImg from "../../assets/images/img-washington.jpg";
+
+export const locationData = [
+  {
+    city: "california",
+    region: "santa clara",
+    img: californiaImg,
+  },
+  {
+    city: "texas",
+    region: "austin",
+    img: texasImg,
+  },
+  {
+    city: "oregon",
+    region: "bend",
+    img: oregonImg,
+  },
+  {
+    city: "washington",
+    region: "bellevue",
+    img: washingtonImg,
+  },
+];

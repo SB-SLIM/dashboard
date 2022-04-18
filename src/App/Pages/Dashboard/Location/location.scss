@@ -1,0 +1,15 @@
+.location-root{
+
+}
+
+.location{
+    &_header{
+
+    }
+
+    &_body{
+        justify-content: center;
+        align-items: center;
+       flex-wrap: wrap;
+    }
+}

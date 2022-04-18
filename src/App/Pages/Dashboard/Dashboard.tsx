@@ -5,13 +5,11 @@ import Efficiency from "./Efficiency/Efficiency";
 import {
   CalendarIcon,
   Chart,
-  DatePiker,
   Img,
   SettingIcon,
   ShareIcon,
 } from "../../ui-components";
-
-import californiaImg from "../../../assets/images/img-california.jpg";
+import Location from "./Location";
 
 function Dashboard() {
   return (
@@ -34,10 +32,7 @@ function Dashboard() {
         </div>
         <div className="g-col-9">test</div>
         <div className="g-col-3">
-          <Img src={californiaImg} alt="" />
-          <Img src="" alt="" />
-          <Img src={californiaImg} alt="" />
-          <Img src={californiaImg} alt="" />
+          <Location />
         </div>
       </div>
     </div>
