@@ -1,0 +1,69 @@
+import {
+  Table as TableMUI,
+  TableRow as TableRowMUI,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+} from "@mui/material";
+import TableRow from "./TableRow";
+
+const data = [
+  {
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    address: {
+      street: "Kulas Light",
+      suite: "Apt. 556",
+      city: "Gwenborough",
+      zipcode: "92998-3874",
+      geo: {
+        lat: "-37.3159",
+        lng: "81.1496",
+      },
+    },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
+    company: {
+      name: "Romaguera-Crona",
+      department: "marketing",
+      color: "#f0f",
+      catchPhrase: "Multi-layered client-server neural-net",
+      bs: "harness real-time e-markets",
+    },
+    sales: 250,
+    avgSales: 300,
+    pay: 3600,
+    commission: 50,
+  },
+];
+export type TRow = typeof data[number];
+
+function Table() {
+  return (
+    <TableContainer>
+      <TableMUI sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRowMUI>
+            <TableCell>Employees</TableCell>
+            <TableCell align="right">Location</TableCell>
+            <TableCell align="right">Department</TableCell>
+            <TableCell align="right">Sales</TableCell>
+            <TableCell align="right">Pay(YTD)</TableCell>
+            <TableCell align="right">contact</TableCell>
+            <TableCell align="right">Social</TableCell>
+          </TableRowMUI>
+        </TableHead>
+        <TableBody>
+          {data.map((row: TRow) => (
+            <TableRow key={row.id} {...row} />
+          ))}
+        </TableBody>
+      </TableMUI>
+    </TableContainer>
+  );
+}
+
+export default Table;

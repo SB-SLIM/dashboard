@@ -5,15 +5,25 @@ $clr-primary-dark: #0b6cad;
 $clr-secondary: #003277;
 $clr-secondary-light: #335b92;
 $clr-secondary-dark: #002353;
+$clr-error-main: #f44336;
+$clr-error-light: #e57373;
+$clr-error-dark: #d32f2f;
+$clr-warning-main: #ffa726;
+$clr-warning-light: #ffb74d;
+$clr-warning-dark: #f57c00;
+$clr-info-main: #29b6f6;
+$clr-info-light: #4fc3f7;
+$clr-info-dark: #0288d1;
+$clr-success-main: #66bb6a;
+$clr-success-light: #81c784;
+$clr-success-dark: #388e3c;
 
-$clr-chartBar: linear-gradient(360deg, $clr-secondary, $clr-primary);
 $clr-progressBar: linear-gradient(to right, $clr-primary, $clr-secondary);
-
 
 $body-bg-color: #fafafa;
 
 $clr-black: #000;
-$clr-gray:#E0E3DA;
+$clr-gray: #e0e3da;
 $clr-white: #fff;
 
 $borderRadius: 4px;
@@ -51,8 +61,19 @@ $py-large: 1.5rem;
   secondary: $clr-secondary;
   secondaryLight: $clr-secondary-light;
   secondaryDark: $clr-secondary-dark;
+  error: $clr-error-main;
+  errorLight: $clr-error-light;
+  errorDark: $clr-error-dark;
+  warning: $clr-warning-main;
+  warningLight: $clr-warning-light;
+  warningDark: $clr-warning-dark;
+  info: $clr-info-main;
+  infoLight: $clr-info-light;
+  infoDark: $clr-info-dark;
+  success: $clr-success-main;
+  successLight: $clr-success-light;
+  successDark: $clr-success-dark;
   bodyBgColor: $body-bg-color;
-  charBarColor: $clr-chartBar;
   //Border Radius
   borderRadius: $borderRadius;
 }

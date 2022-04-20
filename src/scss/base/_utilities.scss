@@ -11,6 +11,9 @@
 .flex--column {
   flex-direction: column;
 }
+.flex-gap--null{
+  --gap:0
+}
 
 .flex-space-between {
   justify-content: space-between;
@@ -223,6 +226,14 @@
 .clr--primary {
   color: $clr-primary;
 }
+.clr--success {
+  color: $clr-success-main;
+}
+
+.clr--error {
+  color: $clr-error-main;
+}
+
 .bg--white {
   background-color: $clr-white;
 }
@@ -247,28 +258,35 @@
   flex-direction: column;
 }
 
-.underline-indicators > *{
+.underline-indicators > * {
   position: relative;
 }
 
 .underline-indicators > *::after {
-  content: '';
+  content: "";
   position: absolute;
-  width:100%;
+  width: 100%;
   height: 2px;
   left: 0;
   bottom: 0;
-  background-color: rgba($clr-primary ,0);
+  background-color: rgba($clr-primary, 0);
 }
 
 .underline-indicators > *:hover::after,
 .underline-indicators > *:focus::after {
-  background-color: rgba($clr-primary, 0.5) ;
+  background-color: rgba($clr-primary, 0.5);
 }
 
-.underline-indicators > *.active::after  {
-  
+.underline-indicators > *.active::after {
   background-color: rgba($clr-primary, 1) !important;
+}
+
+.dot-indicators {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: rgb(107, 107, 107);
 }
 
 /************/
@@ -293,13 +311,23 @@
 /*  -END-   */
 /************/
 
+.boxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding-default;
+  margin-bottom: $my-medium;
+  border-bottom: solid 1px $clr-gray;
+  height: 5rem;
 
-.boxHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $padding-default;
-    margin-bottom: $my-medium;
-    border-bottom: solid 1px $clr-gray;
-    height: 5rem;
+  &_left {
+    & > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    h6 {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
 }
