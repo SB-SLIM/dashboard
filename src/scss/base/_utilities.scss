@@ -11,6 +11,9 @@
 .flex--column {
   flex-direction: column;
 }
+.flex-gap--null{
+  --gap:0
+}
 
 .flex-space-between {
   justify-content: space-between;
@@ -223,6 +226,14 @@
 .clr--primary {
   color: $clr-primary;
 }
+.clr--success {
+  color: $clr-success-main;
+}
+
+.clr--error {
+  color: $clr-error-main;
+}
+
 .bg--white {
   background-color: $clr-white;
 }
@@ -270,6 +281,14 @@
   background-color: rgba($clr-primary, 1) !important;
 }
 
+.dot-indicators {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: rgb(107, 107, 107);
+}
+
 /************/
 /*  Overflow  */
 /*  -Start-   */
@@ -302,9 +321,8 @@
   height: 5rem;
 
   &_left {
-    
-    & > *:not(:last-child){
-      margin-right: 1rem
+    & > *:not(:last-child) {
+      margin-right: 1rem;
     }
 
     h6 {

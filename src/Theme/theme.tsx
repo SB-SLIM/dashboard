@@ -16,11 +16,31 @@ const theme = createTheme({
       light: styles.secondaryLight,
       dark: styles.secondaryDark,
     },
-
+    error: {
+      main: styles.error,
+      light: styles.errorLight,
+      dark: styles.errorDark,
+    },
+    warning: {
+      main: styles.warning,
+      light: styles.warningLight,
+      dark: styles.warningDark,
+    },
+    info: {
+      main: styles.info,
+      light: styles.infoLight,
+      dark: styles.infoDark,
+    },
+    success: {
+      main: styles.success,
+      light: styles.successLight,
+      dark: styles.successDark,
+    },
     background: {
       default: styles.bodyBgColor,
     },
   },
+
   shape: {
     borderRadius: styles.borderRadius,
   },

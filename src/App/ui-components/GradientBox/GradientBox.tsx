@@ -1,7 +1,17 @@
+import clsx from "clsx";
 import "./gradientBox.scss";
 
-function GradientBox({ children }: any) {
-  return <div className="gradient-box">{children}</div>;
+interface IGradientBox {
+  children: React.ReactElement;
+  styles: string;
+}
+
+function GradientBox({ children, styles }: IGradientBox) {
+  return (
+    <div className={clsx("gradient-box", styles && `${styles}`)}>
+      {children}
+    </div>
+  );
 }
 
 export default GradientBox;

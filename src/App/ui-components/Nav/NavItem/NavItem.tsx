@@ -1,4 +1,4 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { NavLink, useMatch, useResolvedPath } from "react-router-dom";
 import "./navitem.scss";
 import clsx from "clsx";
 
@@ -14,9 +14,9 @@ function NavItem({ to, label }: INavItem) {
 
   return (
     <li className={clsx("nav-item", match && "active")}>
-      <Link to={to} className="nav-link">
+      <NavLink to={to} className="nav-link">
         {label}
-      </Link>
+      </NavLink>
     </li>
   );
 }

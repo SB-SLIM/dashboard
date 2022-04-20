@@ -1,0 +1,10 @@
+.social-row, .button-row{
+justify-content: flex-end;
+}
+
+.commission-row{
+    --gap: 0;
+    flex-direction: column;
+    justify-items: center;
+    align-items: start;
+}

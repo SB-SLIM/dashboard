@@ -3,6 +3,7 @@ import { SideBar } from "./Components";
 import { Dashboard } from "./Pages";
 import "./app.scss";
 import "../scss/main.scss";
+import NotFound from "./Pages/NotFound/index";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <main className="grid-main-container">
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

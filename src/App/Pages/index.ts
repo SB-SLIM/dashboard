@@ -1,3 +1,4 @@
 import Dashboard from "./Dashboard";
+import NotFound from "./NotFound";
 
-export { Dashboard };
+export { Dashboard, NotFound };

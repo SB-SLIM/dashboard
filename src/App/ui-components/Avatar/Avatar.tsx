@@ -16,7 +16,12 @@ const sizes = {
 function Avatar({ alt, src = DefaultAvatar, size = "medium" }: TAvatar) {
   return (
     <>
-      <MuiAvatar alt={alt} src={src} sx={sizes[size]} />
+      <MuiAvatar
+        alt={alt}
+        src={src}
+        sx={sizes[size]}
+        style={{ display: "inline-block" }}
+      />
     </>
   );
 }
