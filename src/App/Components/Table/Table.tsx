@@ -15,9 +15,9 @@ const data = [
     username: "Bret",
     email: "Sincere@april.biz",
     address: {
-      street: "Kulas Light",
+      street: "Kulak Light",
       suite: "Apt. 556",
-      city: "Gwenborough",
+      city: "Gainsborough",
       zipcode: "92998-3874",
       geo: {
         lat: "-37.3159",

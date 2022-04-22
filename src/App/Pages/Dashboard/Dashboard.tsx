@@ -3,6 +3,7 @@ import InputSearch from "../../ui-components/Form/InputSearch";
 import { Card } from "../../Components";
 import Efficiency from "./Efficiency/Efficiency";
 import {
+  Button,
   CalendarIcon,
   Chart,
   Img,
@@ -12,7 +13,17 @@ import {
 import Location from "./Location";
 import Employees from "./Employees";
 
+// FIXME: delete med
+import { useSelector, useDispatch } from "react-redux";
+import {
+  increment,
+  selectCount,
+} from "../../Redux/Employees/employees.reducer";
+
 function Dashboard() {
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
+
   return (
     <div className="dashboard ">
       <div className="dashboard_search">
@@ -33,6 +44,8 @@ function Dashboard() {
         </div>
         <div className="g-col-9">
           <Employees />
+          <h1 style={{ fontSize: "6rem" }}> {count}</h1>
+          <Button onClick={() => dispatch(increment())}>Increment</Button>
         </div>
         <div className="g-col-3">
           <Location />

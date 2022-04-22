@@ -18,9 +18,15 @@ $clr-success-main: #66bb6a;
 $clr-success-light: #81c784;
 $clr-success-dark: #388e3c;
 
+
+//Progress Bar
 $clr-progressBar: linear-gradient(to right, $clr-primary, $clr-secondary);
+$clr-progressBar-dark: linear-gradient(to right, rgba($clr-primary, .2), rgba($clr-primary, 1));
+$progressBar_BorderRadius: 20px;
+
 
 $body-bg-color: #fafafa;
+$body-bg-color-dark: rgb(0, 30, 60);
 
 $clr-black: #000;
 $clr-gray: #e0e3da;
@@ -74,6 +80,10 @@ $py-large: 1.5rem;
   successLight: $clr-success-light;
   successDark: $clr-success-dark;
   bodyBgColor: $body-bg-color;
+  bodyBgColorDark: $body-bg-color-dark;
+  clrProgressBar: $clr-progressBar;
+  clrProgressBarDark: $clr-progressBar-dark;
+  progressBarBorderRadius: $progressBar_BorderRadius;
   //Border Radius
   borderRadius: $borderRadius;
 }

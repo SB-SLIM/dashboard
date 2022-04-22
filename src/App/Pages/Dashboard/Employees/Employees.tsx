@@ -15,8 +15,12 @@ function Employees() {
           <Badge badgeContent={"2"} color="secondary" />
         </div>
         <div className="boxHeader_left">
-          <Button variant="text" size="small">
-            <ReloadIcon color="primary" size="large" /> reload
+          <Button
+            startIcon={<ReloadIcon color="primary" size="large" />}
+            variant="text"
+            size="small"
+          >
+            reload
           </Button>
           <Button variant="outlined" size="small">
             New

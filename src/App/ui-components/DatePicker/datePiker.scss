@@ -19,7 +19,7 @@
     content:':'
   }
   input{
-   
+   z-index: 1;
   }
  
   .input_icon{
@@ -31,7 +31,7 @@
       height:100%;
       width: 40px;
       cursor: pointer;
-      z-index: -1;
+     
   }
 }
 
@@ -39,10 +39,7 @@
 
 ::-webkit-calendar-picker-indicator {
   opacity: 0;
-  color: white;
   background-image: transparent;
-  fill: white;
-  background-color: $clr-primary;
   cursor: pointer;
   padding-inline: .75rem;
 

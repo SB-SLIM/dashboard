@@ -4,10 +4,11 @@ import { Dashboard } from "./Pages";
 import "./app.scss";
 import "../scss/main.scss";
 import NotFound from "./Pages/NotFound/index";
+import { Box } from "@mui/material";
 
 const App = () => {
   return (
-    <div className="app">
+    <Box className="app" bgcolor={"background.default"} color={"text.primary"}>
       <SideBar classes="left" />
       <main className="grid-main-container">
         <Routes>
@@ -15,7 +16,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-    </div>
+    </Box>
   );
 };
 

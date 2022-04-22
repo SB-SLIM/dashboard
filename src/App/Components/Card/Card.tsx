@@ -1,3 +1,4 @@
+import { Box, useTheme } from "@mui/material";
 import { Typography } from "../../ui-components";
 import IconButton from "../../ui-components/IconButton/IconButton";
 import "./card.scss";
@@ -8,13 +9,17 @@ interface ICard {
 }
 
 function Card({ label, icon }: ICard) {
+  const theme = useTheme();
   return (
-    <div className="card bg--primary flex">
+    <Box
+      className="card bg--primary flex"
+      sx={{ backgroundColor: theme.palette.primary.main }}
+    >
       <Typography color="white" variant="h4">
         {label}
       </Typography>
       <IconButton>{icon}</IconButton>
-    </div>
+    </Box>
   );
 }
 

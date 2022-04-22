@@ -1,4 +1,4 @@
-import { Badge } from "@mui/material";
+import { Badge, Box, PaletteMode, Switch } from "@mui/material";
 import clsx from "clsx";
 import {
   Avatar,
@@ -10,18 +10,35 @@ import { Nav } from "../../ui-components";
 import IconButton from "../../ui-components/IconButton/IconButton";
 import "./sidebar.scss";
 
+import { useTheme as useThemeMUI } from "@mui/material";
+import { useTheme } from "../../../Theme";
+
 function SideBar({ classes }: { classes?: string }) {
+  const theme = useThemeMUI();
+
+  const setMode = useTheme();
+
   return (
-    <div className={clsx(`sidebar`, classes && `${classes}`)}>
-      <div className="sidebar-share flex flex-space-between flex-align-center  bg--primary">
+    <Box
+      className={clsx(`sidebar`, classes && `${classes}`)}
+      bgcolor={"background.default"}
+      color={"text.primary"}
+    >
+      <Box
+        className="sidebar-share flex flex-space-between flex-align-center"
+        sx={{ backgroundColor: theme.palette.primary.main }}
+      >
         <IconButton>
           <ShareIcon />
         </IconButton>
         <Typography color="white" variant="h6">
           concept
         </Typography>
-      </div>
-      <div className="sidebar-user bg--secondary flex">
+      </Box>
+      <Box
+        className="sidebar-user flex"
+        sx={{ backgroundColor: theme.palette.secondary.dark }}
+      >
         <Badge badgeContent={44} color="primary" overlap="circular">
           <Avatar />
         </Badge>
@@ -33,17 +50,26 @@ function SideBar({ classes }: { classes?: string }) {
             Web Developer, Tunisia TN
           </Typography>
         </div>
-      </div>
+      </Box>
       <Nav isVertical />
-      <div className="sidebar-setting flex flex-justify-center flex-align-center bg--primary">
+      <div className="switch-Mode">
+        <Typography>
+          {theme.palette.mode === "light" ? "Light" : "Dark"} Mode
+        </Typography>
+        <Switch defaultChecked onChange={setMode.toggleColorMode} />
+      </div>
+      <Box
+        className="sidebar-setting flex flex-justify-center flex-align-center"
+        sx={{ backgroundColor: theme.palette.primary.main }}
+      >
         <IconButton>
           <SettingIcon />
         </IconButton>
         <Typography color="white" variant="h6" className="text-capitalize">
           setting
         </Typography>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

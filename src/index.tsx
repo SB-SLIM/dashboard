@@ -8,18 +8,21 @@ const container = document.getElementById("root");
 import { BrowserRouter } from "react-router-dom";
 
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./Theme/theme";
 
+import { Provider } from "react-redux";
+import store from "./App/Redux/store";
+import { ThemeProvider } from "./Theme";
 
 if (container) {
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
         <CssBaseline enableColorScheme />
         <BrowserRouter>
-          <App />
+          <Provider store={store}>
+            <App />
+          </Provider>
         </BrowserRouter>
       </ThemeProvider>
     </React.StrictMode>
