@@ -6,6 +6,7 @@ import "../scss/main.scss";
 import NotFound from "./Pages/NotFound/index";
 import { Box } from "@mui/material";
 
+
 const App = () => {
   return (
     <Box className="app" bgcolor={"background.default"} color={"text.primary"}>

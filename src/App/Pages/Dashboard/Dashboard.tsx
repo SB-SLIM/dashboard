@@ -6,7 +6,6 @@ import {
   Button,
   CalendarIcon,
   Chart,
-  Img,
   SettingIcon,
   ShareIcon,
 } from "../../ui-components";
@@ -15,14 +14,23 @@ import Employees from "./Employees";
 
 // FIXME: delete med
 import { useSelector, useDispatch } from "react-redux";
-import {
-  increment,
-  selectCount,
-} from "../../Redux/Employees/employees.reducer";
+import { getEmployees } from "../../Redux/Employees/employees.reducer";
+import { useEffect } from "react";
+import { RootState } from "../../Redux/store";
 
 function Dashboard() {
-  const count = useSelector(selectCount);
+  const { data } = useSelector((state: RootState) => state.employees);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const promise = dispatch(getEmployees());
+
+    return () => {
+      // `createAsyncThunk` attaches an `abort()` method to the promise
+      promise.abort();
+    };
+  }, []);
+  console.log(data);
 
   return (
     <div className="dashboard ">
@@ -44,8 +52,6 @@ function Dashboard() {
         </div>
         <div className="g-col-9">
           <Employees />
-          <h1 style={{ fontSize: "6rem" }}> {count}</h1>
-          <Button onClick={() => dispatch(increment())}>Increment</Button>
         </div>
         <div className="g-col-3">
           <Location />

@@ -1,6 +1,6 @@
 import "./location.scss";
 import Typography from "../../../ui-components/Typography/index";
-import { locationData } from "../../../Constants/data";
+import { locationData } from "../../../Constants/dataConfig";
 import { Img } from "../../../ui-components";
 import img from "../../../../assets/images/img-california.jpg";
 import { Badge } from "@mui/material";

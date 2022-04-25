@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import {
   ThemeProvider as ThemeProviderMUI,
   createTheme,
-  Theme,
 } from "@mui/material/styles";
 import ThemeContext from "./theme.context";
 

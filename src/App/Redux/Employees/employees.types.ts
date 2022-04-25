@@ -1,1 +1,2 @@
-export const ADD = "ADD";
+export const FETCHING_EMPLOYEES = "FETCHING_EMPLOYEES";
+export const FETCH_EMPLOYEES = "FETCH_EMPLOYEES";

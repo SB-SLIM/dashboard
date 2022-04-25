@@ -1,8 +1,7 @@
 import { DatePiker, Typography } from "../../../ui-components";
 import "./efficiency.scss";
-import { LinearProgress } from "@mui/material";
 import EfficientItem from "./EfficientItem";
-import { efficiencyData } from "../../../Constants/data";
+import { efficiencyData } from "../../../Constants/dataConfig";
 
 interface IEEfficiency {
   title: string;
