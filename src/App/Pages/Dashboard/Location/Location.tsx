@@ -6,7 +6,6 @@ import img from "../../../../assets/images/img-california.jpg";
 import { Badge } from "@mui/material";
 
 function Location() {
-  console.log(img);
   return (
     <>
       <div className="location_header boxHeader">

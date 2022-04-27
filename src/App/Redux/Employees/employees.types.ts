@@ -1,2 +1,5 @@
-export const FETCHING_EMPLOYEES = "FETCHING_EMPLOYEES";
-export const FETCH_EMPLOYEES = "FETCH_EMPLOYEES";
+enum ActionType {
+  GET_EMPLOYEES = "GET_EMPLOYEES",
+  SORT_EMPLOYEES = "SORT_EMPLOYEES",
+}
+export default ActionType;

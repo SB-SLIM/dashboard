@@ -12,26 +12,8 @@ import {
 import Location from "./Location";
 import Employees from "./Employees";
 
-// FIXME: delete med
-import { useSelector, useDispatch } from "react-redux";
-import { getEmployees } from "../../Redux/Employees/employees.reducer";
-import { useEffect } from "react";
-import { RootState } from "../../Redux/store";
 
 function Dashboard() {
-  const { data } = useSelector((state: RootState) => state.employees);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const promise = dispatch(getEmployees());
-
-    return () => {
-      // `createAsyncThunk` attaches an `abort()` method to the promise
-      promise.abort();
-    };
-  }, []);
-  console.log(data);
-
   return (
     <div className="dashboard ">
       <div className="dashboard_search">

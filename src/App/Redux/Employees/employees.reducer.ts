@@ -1,29 +1,35 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { getEmployees } from "./employees.actions";
 
-// import { getEmployees } from "./employees.actions";
-import axios from "axios";
-import requests from "../../Constants/requests";
 
-export const getEmployees: any = createAsyncThunk(
-  "employees/getEmployees",
-  async (name, thunkAPI) => {
-    try {
-      const res = await axios(requests.fetchUsers);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("something went wrong");
-    }
-  }
-);
+const initialState = {
+  isLoading: true,
+  error: { isError: false, msg: "" },
+  tmpData: [],
+  data: [],
+  sort: "dec",
+};
 
 export const employeesSlice = createSlice({
   name: "employees",
-  initialState: {
-    isLoading: true,
-    error: { isError: false, msg: "" },
-    data: [],
+  initialState,
+  reducers: {
+    sortEmployees: (state, action) => {
+      if (action.payload === "asc") {
+        state.data = state.data.sort((a: any, b: any) => {
+          const x = a.name.toLowerCase();
+          const y = b.name.toLowerCase();
+          if (x < y) {
+            return -1;
+          }
+          if (x > y) {
+            return 1;
+          }
+          return 0;
+        });
+      }
+    },
   },
-  reducers: {},
   extraReducers: {
     [getEmployees.pending]: (state) => {
       state.isLoading = true;
@@ -40,6 +46,7 @@ export const employeesSlice = createSlice({
   },
 });
 
-// export const {} = employeesSlice.actions;
+export const { sortEmployees } = employeesSlice.actions;
+
 
 export default employeesSlice.reducer;

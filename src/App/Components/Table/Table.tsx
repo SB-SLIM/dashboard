@@ -5,43 +5,79 @@ import {
   TableCell,
   TableContainer,
   TableHead,
+  Skeleton,
 } from "@mui/material";
 import TableRow from "./TableRow";
 
-const data = [
-  {
-    id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz",
-    address: {
-      street: "Kulak Light",
-      suite: "Apt. 556",
-      city: "Gainsborough",
-      zipcode: "92998-3874",
-      geo: {
-        lat: "-37.3159",
-        lng: "81.1496",
-      },
-    },
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
-    company: {
-      name: "Romaguera-Crona",
-      department: "marketing",
-      color: "#f0f",
-      catchPhrase: "Multi-layered client-server neural-net",
-      bs: "harness real-time e-markets",
-    },
-    sales: 250,
-    avgSales: 300,
-    pay: 3600,
-    commission: 50,
-  },
-];
-export type TRow = typeof data[number];
+// const data = [
+//   {
+//     id: 1,
+//     name: "Leanne Graham",
+//     username: "Bret",
+//     email: "Sincere@april.biz",
+//     address: {
+//       street: "Kulak Light",
+//       suite: "Apt. 556",
+//       city: "Gainsborough",
+//       zipcode: "92998-3874",
+//       geo: {
+//         lat: "-37.3159",
+//         lng: "81.1496",
+//       },
+//     },
+//     phone: "1-770-736-8031 x56442",
+//     website: "hildegard.org",
+//     company: {
+//       name: "Romaguera-Crona",
+//       department: "marketing",
+//       color: "#f0f",
+//       catchPhrase: "Multi-layered client-server neural-net",
+//       bs: "harness real-time e-markets",
+//     },
+//     sales: 250,
+//     avgSales: 300,
+//     pay: 3600,
+//     commission: 50,
+//   },
+// ];
+export interface IDataEmployee {
+  id?: string | number;
+  name?: string;
+  username?: string;
+  email?: string;
+  address?: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo?: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone?: string;
+  website?: string;
+  company?: {
+    name: string;
+    department: string;
+    color: string;
+    catchPhrase: string;
+    bs: string;
+  };
+  sales?: number;
+  avgSales?: number;
+  pay?: number;
+  commission?: number;
+}
 
-function Table() {
+//FIXME: type check
+function Table({ data, isLoading, error }: any) {
+  const dataIsLoading: Array<React.ReactElement> = [];
+
+  for (let i = 0; i < 5; i++) {
+    dataIsLoading.push(<TableRow key={i} isLoading={isLoading} />);
+  }
+
   return (
     <TableContainer>
       <TableMUI sx={{ minWidth: 650 }} aria-label="simple table">
@@ -57,13 +93,16 @@ function Table() {
           </TableRowMUI>
         </TableHead>
         <TableBody>
-          {data.map((row: TRow) => (
-            <TableRow key={row.id} {...row} />
-          ))}
+          {isLoading
+            ? data.map((row: IDataEmployee) => (
+                <TableRow key={row.id} {...row} />
+              ))
+            : dataIsLoading}
         </TableBody>
       </TableMUI>
     </TableContainer>
   );
 }
+                  
 
 export default Table;
