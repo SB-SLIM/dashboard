@@ -40,14 +40,11 @@ function TableRow({
   const isSalesUp = () => {
     return sales > avgSales;
   };
+console.log(isLoading);
+if (isLoading) {
+  return <RowIsLoading />;
+}
 
-  if (isLoading) {
-    return <RowIsLoading />;
-  }
-
-  if (address) {
-    console.log(address.city);
-  }
 
   return (
     <TableRowMUI sx={{ "& td, & th": { border: 0 } }} className="row">

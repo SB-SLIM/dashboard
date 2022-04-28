@@ -93,7 +93,7 @@ function Table({ data, isLoading, error }: any) {
           </TableRowMUI>
         </TableHead>
         <TableBody>
-          {isLoading
+          {!isLoading
             ? data.map((row: IDataEmployee) => (
                 <TableRow key={row.id} {...row} />
               ))
