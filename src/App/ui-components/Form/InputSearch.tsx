@@ -1,5 +1,4 @@
-import { Input, InputAdornment, Paper } from "@mui/material";
-import IconButton from "../IconButton/IconButton";
+import { Input, InputAdornment } from "@mui/material";
 import { SearchIcon } from "../Icons";
 import "./form.scss";
 

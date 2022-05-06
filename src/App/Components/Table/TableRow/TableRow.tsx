@@ -1,4 +1,5 @@
 import {
+  IconButton,
   Link,
   Skeleton,
   TableCell,
@@ -13,7 +14,6 @@ import {
   LinkedinIcon,
   TwitterIcon,
 } from "../../../ui-components";
-import IconButton from "../../../ui-components/IconButton/IconButton";
 import { IDataEmployee } from "../Table";
 import "./tableRow.scss";
 
@@ -31,6 +31,7 @@ function TableRow({
   pay = 150,
   avgSales = 120,
   commission = 12,
+  image,
   phone,
   website,
   isLoading,
@@ -40,17 +41,16 @@ function TableRow({
   const isSalesUp = () => {
     return sales > avgSales;
   };
-console.log(isLoading);
-if (isLoading) {
-  return <RowIsLoading />;
-}
 
+  if (isLoading) {
+    return <RowIsLoading />;
+  }
 
   return (
     <TableRowMUI sx={{ "& td, & th": { border: 0 } }} className="row">
       <TableCell component="th" scope="row">
         <div className="flex">
-          <Avatar size="small" />
+          <Avatar size="small" src={image} alt={name} />
           {name && name}
         </div>
       </TableCell>
@@ -59,7 +59,7 @@ if (isLoading) {
         <div className=" w-mc row">
           <span
             className="dot-indicators mr-small"
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: company?.color }}
           />
           {company?.name}
         </div>
@@ -80,25 +80,8 @@ if (isLoading) {
           )}
         </div>
       </TableCell>
-      <TableCell align="right">
-        <div className="flex row__button">
-          <Button variant="contained">phone</Button>
-          <Button variant="contained">email</Button>
-        </div>
-      </TableCell>
-      <TableCell align="right">
-        <div className="flex social-row">
-          <IconButton>
-            <FacebookIcon color="primary" />
-          </IconButton>
-          <IconButton>
-            <TwitterIcon color="primary" />
-          </IconButton>
-          <IconButton>
-            <LinkedinIcon color="primary" />
-          </IconButton>
-        </div>
-      </TableCell>
+      <TableCell align="right"></TableCell>
+      <TableCell align="right"></TableCell>
     </TableRowMUI>
   );
 }

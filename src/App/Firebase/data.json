@@ -1,0 +1,290 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Rose",
+        "last": "Arnold"
+      },
+      "location": {
+        "street": {
+          "number": 93,
+          "name": "Albert Road"
+        },
+        "city": "Ripon",
+        "state": "Gloucestershire",
+        "country": "United Kingdom",
+        "postcode": "UK14 8NN",
+        "coordinates": {
+          "latitude": "6.0486",
+          "longitude": "41.0677"
+        },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "rose.arnold@example.com",
+      "login": {
+        "uuid": "c0ce00b6-4aaf-4b62-85ed-8cdabf8e4db9",
+        "username": "ticklishlion782",
+        "password": "talbot",
+        "salt": "ON7UyjYv",
+        "md5": "f25ad4819cfa040e435b6c825af1369b",
+        "sha1": "cf984cd1767e1bc630ee926373384b36ab6a4aa2",
+        "sha256": "324817eaa56fd4c5ff9406e3758dc7fbfa360eb68f394bcc7cd11f69c2db959f"
+      },
+      "dob": {
+        "date": "1988-08-22T13:06:25.961Z",
+        "age": 34
+      },
+      "registered": {
+        "date": "2013-07-20T21:10:04.244Z",
+        "age": 9
+      },
+      "phone": "015395 97263",
+      "cell": "0731-957-133",
+      "id": {
+        "name": "NINO",
+        "value": "AX 75 51 62 E"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/71.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/71.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/71.jpg"
+      },
+      "nat": "GB"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Logan",
+        "last": "Picard"
+      },
+      "location": {
+        "street": {
+          "number": 6734,
+          "name": "Rue Desaix"
+        },
+        "city": "Strasbourg",
+        "state": "Savoie",
+        "country": "France",
+        "postcode": 16000,
+        "coordinates": {
+          "latitude": "-2.4999",
+          "longitude": "91.0850"
+        },
+        "timezone": {
+          "offset": "-3:30",
+          "description": "Newfoundland"
+        }
+      },
+      "email": "logan.picard@example.com",
+      "login": {
+        "uuid": "db14ecad-200e-4654-9331-daaa6cc1113d",
+        "username": "crazyostrich425",
+        "password": "jojojo",
+        "salt": "e9NK6C4C",
+        "md5": "8409a214a14a8278348b118d0d6dcaf1",
+        "sha1": "034407e61916d9102d03372f010bb05c278d308c",
+        "sha256": "ddbcd4613dd2e41108c150e6e103fab2d7779859afb37e20ff86d5d854e54589"
+      },
+      "dob": {
+        "date": "1986-01-08T08:44:07.415Z",
+        "age": 36
+      },
+      "registered": {
+        "date": "2007-05-12T09:41:23.807Z",
+        "age": 15
+      },
+      "phone": "01-66-60-31-82",
+      "cell": "06-80-25-64-65",
+      "id": {
+        "name": "INSEE",
+        "value": "1NNaN57381224 57"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/36.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/36.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/36.jpg"
+      },
+      "nat": "FR"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Olivia",
+        "last": "Mortensen"
+      },
+      "location": {
+        "street": {
+          "number": 6529,
+          "name": "Lundtoftevej"
+        },
+        "city": "Ansager",
+        "state": "Hovedstaden",
+        "country": "Denmark",
+        "postcode": 27999,
+        "coordinates": {
+          "latitude": "23.7368",
+          "longitude": "-63.5470"
+        },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "olivia.mortensen@example.com",
+      "login": {
+        "uuid": "9a00a9bc-4ec4-4a4e-af7a-2977ae52161a",
+        "username": "heavyladybug403",
+        "password": "pornporn",
+        "salt": "lDUoaoF2",
+        "md5": "2d328c5ae8303c52118590ead7980634",
+        "sha1": "ab87bd4642ec48aad83577729defa4c9f20be13c",
+        "sha256": "908ad8d797d16e1fa01250c68acd10f0b62be21698ed1f23d67dc52ad17b9f5f"
+      },
+      "dob": {
+        "date": "1954-03-05T00:24:29.447Z",
+        "age": 68
+      },
+      "registered": {
+        "date": "2015-09-24T13:02:23.972Z",
+        "age": 7
+      },
+      "phone": "31540614",
+      "cell": "66042401",
+      "id": {
+        "name": "CPR",
+        "value": "050354-1500"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/3.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/3.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/3.jpg"
+      },
+      "nat": "DK"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Enrique",
+        "last": "Robinson"
+      },
+      "location": {
+        "street": {
+          "number": 5673,
+          "name": "Prospect Rd"
+        },
+        "city": "Warrnambool",
+        "state": "New South Wales",
+        "country": "Australia",
+        "postcode": 9860,
+        "coordinates": {
+          "latitude": "-59.8360",
+          "longitude": "-113.3589"
+        },
+        "timezone": {
+          "offset": "+3:00",
+          "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+        }
+      },
+      "email": "enrique.robinson@example.com",
+      "login": {
+        "uuid": "16ed29e7-9e76-4803-a1c2-90fd892a9ca8",
+        "username": "heavycat982",
+        "password": "shun",
+        "salt": "lh0swuG0",
+        "md5": "d347cbe59444e233d0f6d1c083b3a557",
+        "sha1": "77fc2d5c87af2b8c7ebe7bcba8feff8d4286093a",
+        "sha256": "65a338b513143455f4d447a0ebf4519dd459e2c73a963389f6f0b74fa388ff73"
+      },
+      "dob": {
+        "date": "1983-08-31T13:17:41.519Z",
+        "age": 39
+      },
+      "registered": {
+        "date": "2008-03-22T19:13:01.817Z",
+        "age": 14
+      },
+      "phone": "02-6100-2998",
+      "cell": "0401-640-959",
+      "id": {
+        "name": "TFN",
+        "value": "926002578"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/42.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/42.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/42.jpg"
+      },
+      "nat": "AU"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Angus",
+        "last": "Moore"
+      },
+      "location": {
+        "street": {
+          "number": 9290,
+          "name": "The Square"
+        },
+        "city": "Taupo",
+        "state": "Canterbury",
+        "country": "New Zealand",
+        "postcode": 55957,
+        "coordinates": {
+          "latitude": "-31.5878",
+          "longitude": "157.9207"
+        },
+        "timezone": {
+          "offset": "-4:00",
+          "description": "Atlantic Time (Canada), Caracas, La Paz"
+        }
+      },
+      "email": "angus.moore@example.com",
+      "login": {
+        "uuid": "3651f8b2-5589-4059-85e5-810e7bdac627",
+        "username": "reddog807",
+        "password": "bruno1",
+        "salt": "Qy3QYBk4",
+        "md5": "21a578345971edee89f5c5044d51cffb",
+        "sha1": "018e6c6013ed99a8c853284a8acf554c5fd55850",
+        "sha256": "eb56e21249433ab8284a63f95f0ccf019cc08e4ebb07c6d798421cc6fbc2bb0d"
+      },
+      "dob": {
+        "date": "1995-04-10T05:35:39.290Z",
+        "age": 27
+      },
+      "registered": {
+        "date": "2017-06-05T19:35:19.104Z",
+        "age": 5
+      },
+      "phone": "(636)-135-6619",
+      "cell": "(706)-815-7527",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/31.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/31.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/31.jpg"
+      },
+      "nat": "NZ"
+    }
+  ],
+  "info": {
+    "seed": "cdb2a2616bb37b80",
+    "results": 5,
+    "page": 1,
+    "version": "1.3"
+  }
+}

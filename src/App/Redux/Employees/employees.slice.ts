@@ -1,13 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getEmployees } from "./employees.actions";
+import { IEmployee } from "../../Components/Employees/AddEmployee/AddEmployeeForm";
+import { getEmployees, addEmployee } from "./employees.thunks";
 
 
-const initialState = {
+interface IInitialState {
+  isLoading: boolean,
+  error: { isError: boolean, msg: string },
+  tmpData: any[];
+  data: any[];
+  formData: IEmployee;
+  sort: "asc" | "desc"
+}
+
+const initialState: IInitialState = {
   isLoading: true,
   error: { isError: false, msg: "" },
   tmpData: [],
   data: [],
-  sort: "dec",
+  formData: { name: "", email: '', phone: 0 },
+  sort: "desc",
 };
 
 export const employeesSlice = createSlice({
@@ -40,6 +51,18 @@ export const employeesSlice = createSlice({
       state.data = action.payload;
     },
     [getEmployees.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = { isError: true, msg: action.error.message };
+    },
+    [addEmployee.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [addEmployee.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.error = { isError: false, msg: "" };
+      state.data = [...state.data, action.payload];
+    },
+    [addEmployee.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = { isError: true, msg: action.error.message };
     },
