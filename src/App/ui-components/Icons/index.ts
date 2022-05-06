@@ -9,8 +9,11 @@ import SearchIcon from "./SearchIcon";
 import ArrowDownWordIcon from "./ArrowDownWordIcon";
 import ArrowUpWordIcon from "./ArrowUpWordIcon";
 import ArrowDownIcon from "./ArrowDownIcon";
+import CloseIcon from './CloseIcon/index';
+
 
 export {
+  CloseIcon,
   ShareIcon,
   SettingIcon,
   ReloadIcon,

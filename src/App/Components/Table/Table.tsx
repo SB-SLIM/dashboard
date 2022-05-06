@@ -45,6 +45,7 @@ export interface IDataEmployee {
   name?: string;
   username?: string;
   email?: string;
+  image?: string;
   address?: {
     street: string;
     suite: string;

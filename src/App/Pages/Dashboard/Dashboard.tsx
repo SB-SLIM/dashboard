@@ -3,7 +3,6 @@ import InputSearch from "../../ui-components/Form/InputSearch";
 import { Card } from "../../Components";
 import Efficiency from "./Efficiency/Efficiency";
 import {
-  Button,
   CalendarIcon,
   Chart,
   SettingIcon,
@@ -11,7 +10,6 @@ import {
 } from "../../ui-components";
 import Location from "./Location";
 import Employees from "./Employees";
-
 
 function Dashboard() {
   return (

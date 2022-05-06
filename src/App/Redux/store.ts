@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import employeesReducer from "./Employees";
+import modalReducer from './Modal/index';
 
 const store = configureStore({
   reducer: {
     employees: employeesReducer,
+    modal: modalReducer,
   },
 });
 

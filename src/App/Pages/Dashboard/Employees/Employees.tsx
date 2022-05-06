@@ -1,17 +1,21 @@
 import { Badge } from "@mui/material";
 import { Button, ReloadIcon, Typography } from "../../../ui-components";
 import "./employees.scss";
-import { Table } from "../../../Components";
-import { sortEmployees } from "../../../Redux/Employees/employees.reducer";
 import { useDispatch, useSelector } from "react-redux";
-import { getEmployees } from "../../../Redux/Employees/employees.actions";
-import { useCallback, useEffect } from "react";
+import { getEmployees } from "../../../Redux/Employees/employees.thunks";
+import { useEffect } from "react";
 import { RootState } from "../../../Redux/store";
+import AddEmployeeFrom from "../../../Components/Employees/AddEmployee/AddEmployeeForm";
+import { closeModal, openModal } from "../../../Redux/Modal/modal.slice";
+import Modal from "../../../ui-components/Modal/Modal";
+import { DataGrid } from "@mui/x-data-grid";
+import { employeesColumns } from "./employeesDataSource";
 
 function Employees() {
   const { data, isLoading, error } = useSelector(
     (state: RootState) => state.employees
   );
+  const { isOpen } = useSelector((state: RootState) => state.modal);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,6 +26,8 @@ function Employees() {
       promise.abort();
     };
   }, []);
+
+  console.log(data);
 
   return (
     <div className="employees-root">
@@ -37,17 +43,34 @@ function Employees() {
             startIcon={<ReloadIcon color="primary" size="large" />}
             variant="text"
             size="small"
-            onClick={() => dispatch(sortEmployees("asc"))}
           >
             reload
           </Button>
-          <Button variant="outlined" size="small">
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => dispatch(openModal())}
+          >
             New
           </Button>
+
+          <Modal
+            setOpen={() => dispatch(closeModal())}
+            open={isOpen}
+            label="Add new employee"
+          >
+            <AddEmployeeFrom />
+          </Modal>
         </div>
       </div>
-      <div className="employees_body">
-        <Table data={data} isLoading={isLoading} error={error} />
+      <div className="employees-root_body">
+        {/* <Table data={data} isLoading={isLoading} error={error} /> */}
+
+        <DataGrid
+          rowsPerPageOptions={[5, 10, 20, 100]}
+          columns={employeesColumns}
+          rows={data}
+        />
       </div>
     </div>
   );

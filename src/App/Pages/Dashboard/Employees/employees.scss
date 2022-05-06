@@ -1,3 +1,8 @@
-.employees-root{
+.employees-root {
+  --gap:.5rem;
+  height: 100%;
 
+  &_body {
+    height: 100%;
+  }
 }

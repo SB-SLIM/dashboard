@@ -1,13 +1,12 @@
-import { Badge, Box, PaletteMode, Switch } from "@mui/material";
+import { Badge, Box, IconButton, Switch } from "@mui/material";
 import clsx from "clsx";
 import {
   Avatar,
   SettingIcon,
   ShareIcon,
   Typography,
+  Nav,
 } from "../../ui-components";
-import { Nav } from "../../ui-components";
-import IconButton from "../../ui-components/IconButton/IconButton";
 import "./sidebar.scss";
 
 import { useTheme as useThemeMUI } from "@mui/material";

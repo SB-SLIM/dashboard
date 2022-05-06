@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import {
   ThemeProvider as ThemeProviderMUI,
   createTheme,
@@ -7,21 +7,25 @@ import ThemeContext from "./theme.context";
 
 import { PaletteMode } from "@mui/material";
 import { getDesignTokens } from "./theme";
+import useLocaleStorage from "../App/Hooks/useLocaleStorage";
 
 const ThemeProvider: FC<any> = (props: any) => {
   const { children } = props;
-  const [modeTheme, setModeTheme] = React.useState<"light" | "dark">("light");
+  const [modeTheme, setModeTheme] = useLocaleStorage<"light" | "dark">(
+    "theme",
+    "dark"
+  );
 
   const setMode = React.useMemo(
     () => ({
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
-        setModeTheme((prevMode: PaletteMode) =>
-          prevMode === "light" ? "dark" : "light"
-        );
+        setModeTheme((prevMode: PaletteMode) => {
+          return prevMode === "light" ? "dark" : "light";
+        });
       },
     }),
-    []
+    [modeTheme]
   );
 
   const theme = React.useMemo(

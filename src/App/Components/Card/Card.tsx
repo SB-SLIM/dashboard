@@ -1,6 +1,6 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { Typography } from "../../ui-components";
-import IconButton from "../../ui-components/IconButton/IconButton";
+
 import "./card.scss";
 
 interface ICard {

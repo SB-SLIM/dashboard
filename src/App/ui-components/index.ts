@@ -22,8 +22,10 @@ import Img from "./Image";
 import ProgressBar from "./ProgressBar/index";
 import ArrowDownWordIcon from "./Icons/ArrowDownWordIcon";
 import ArrowUpWordIcon from "./Icons/ArrowUpWordIcon";
+import Modal from './Modal/index';
 
 export {
+  Modal, 
   ProgressBar,
   ButtonGroup,
   Avatar,
