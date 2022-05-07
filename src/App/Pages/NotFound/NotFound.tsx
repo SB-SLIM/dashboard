@@ -16,7 +16,7 @@ function NotFound() {
         <MUILink
           variant="button"
           component={RouterLink}
-          to="/"
+          to="/dashboard"
           underline="hover"
         >
           HOME

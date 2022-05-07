@@ -1,3 +1,4 @@
+import "./sidebar.scss";
 import { Badge, Box, IconButton, Switch } from "@mui/material";
 import clsx from "clsx";
 import {
@@ -7,14 +8,16 @@ import {
   Typography,
   Nav,
 } from "../../ui-components";
-import "./sidebar.scss";
+import { itemsInit } from "./navLinkSource";
 
 import { useTheme as useThemeMUI } from "@mui/material";
 import { useTheme } from "../../../Theme";
 
 function SideBar({ classes }: { classes?: string }) {
+  //useTheme Provider
   const theme = useThemeMUI();
 
+  // custom hook switch light/dark mode
   const setMode = useTheme();
 
   return (
@@ -50,7 +53,7 @@ function SideBar({ classes }: { classes?: string }) {
           </Typography>
         </div>
       </Box>
-      <Nav isVertical />
+      <Nav items={itemsInit} isVertical />
       <div className="switch-Mode">
         <Typography>
           {theme.palette.mode === "light" ? "Light" : "Dark"} Mode

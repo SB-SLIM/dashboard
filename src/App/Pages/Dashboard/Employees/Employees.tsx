@@ -3,7 +3,7 @@ import { Button, ReloadIcon, Typography } from "../../../ui-components";
 import "./employees.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getEmployees } from "../../../Redux/Employees/employees.thunks";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { RootState } from "../../../Redux/store";
 import AddEmployeeFrom from "../../../Components/Employees/AddEmployee/AddEmployeeForm";
 import { closeModal, openModal } from "../../../Redux/Modal/modal.slice";
@@ -26,8 +26,6 @@ function Employees() {
       promise.abort();
     };
   }, []);
-
-  console.log(data);
 
   return (
     <div className="employees-root">

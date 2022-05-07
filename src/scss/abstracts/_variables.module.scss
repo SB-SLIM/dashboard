@@ -49,14 +49,16 @@ $my-small: 2rem;
 $my-large: 3rem;
 
 //Padding
-$padding-default: 1rem 2rem;
-
 $px-medium: 1.5rem;
 $px-small: 1rem;
 $px-large: 2rem;
 $py-medium: 1rem;
 $py-small: 0.75rem;
 $py-large: 1.5rem;
+
+$padding-default: $py-medium $px-large;
+
+$boxheader-height: 5rem; 
 
 // Export to MUI Theme
 :export {

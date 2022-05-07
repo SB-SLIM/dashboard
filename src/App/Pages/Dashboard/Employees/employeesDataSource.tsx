@@ -87,7 +87,7 @@ export const employeesColumns: GridColDef[] = [
   {
     field: "contact",
     headerName: "Contact",
-    width: 175,
+    width: 188,
     renderCell: (params) => {
       return (
         <div className="flex row__button">

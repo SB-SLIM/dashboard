@@ -1,8 +1,10 @@
+@use '../../../../scss/abstracts/' as *;
+
 .employees-root {
   --gap:.5rem;
   height: 100%;
 
   &_body {
-    height: 100%;
+    height: calc(100% - $boxheader-height - ($py-medium * 2) - $my-medium);
   }
 }

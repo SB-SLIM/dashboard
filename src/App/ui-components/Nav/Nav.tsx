@@ -1,27 +1,18 @@
 import NavItem from "./NavItem";
 import clsx from "clsx";
 import "./nav.scss";
+import { TItem } from "../../Components/SideBar/navLinkSource";
 
-interface INav {
-  items?: Array<TItem>;
+type props = {
+  items?: TItem[];
   isVertical?: boolean;
-}
-
-export type TItem = {
-  to: string;
-  label: string;
 };
 
-const itemsInit: Array<TItem> = [
-  { to: "/", label: "home" },
-  { to: "/testPage", label: "testPage" },
-];
-
-function Nav({ items = itemsInit, isVertical = false }: INav) {
+function Nav({ items, isVertical = false }: props) {
   return (
     <nav className={clsx("nav ", isVertical && "nav--vertical")}>
       <ul>
-        {items.map((item: TItem, index: number) => {
+        {items?.map((item, index) => {
           return <NavItem key={index} {...item} />;
         })}
       </ul>

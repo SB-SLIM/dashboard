@@ -7,6 +7,8 @@ export const fetchData = async (collect) => {
     querySnapshot.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });
+  }).catch((err) => {
+  console.log("🚀 ~ file: functions.js ~ line 11 ~ fetchData ~ err", err);
   });
 
   return data;

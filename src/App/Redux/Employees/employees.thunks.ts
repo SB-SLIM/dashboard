@@ -11,7 +11,6 @@ export const getEmployees: any = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue("something went wrong");
     }
-
   }
 );
 

@@ -318,7 +318,7 @@
   padding: $padding-default;
   margin-bottom: $my-medium;
   border-bottom: solid 1px $clr-gray;
-  height: 5rem;
+  height: $boxheader-height;
 
   &_left {
     & > *:not(:last-child) {
