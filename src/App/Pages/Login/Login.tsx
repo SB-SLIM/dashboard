@@ -15,6 +15,8 @@ import { useDispatch } from "react-redux";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { signup } from "../../Redux/Auth/auth.thunk";
+import _ from "lodash";
+import validator from "validator";
 
 export interface FormLogin {
   email: string;
@@ -46,15 +48,22 @@ function Login() {
   }, [isSubmitSuccessful]);
 
   const registerOptions = {
-    email: { required: "Email is required" },
+    email: {
+      required: "Email is required",
+      validate: {
+        isEmail: (value: string) =>
+          validator.isEmail(value) || "Is not a valid email",
+      },
+    },
     password: {
       required: "Password is required",
-      minLength: {
-        value: 8,
-        message: "Password must have at least 8 characters",
+      validate: {
+        isStrong: (value: string) =>
+          validator.isStrongPassword(value) || "Is not Strong",
       },
     },
   };
+  console.log("🚀 ~ file: Login.tsx ~ line 65 ~ Login ~ errors", errors);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -86,7 +95,7 @@ function Login() {
             label="Email Address"
             autoComplete="email"
             autoFocus
-            error={errors !== {}}
+            error={_.has(errors, "email")}
             helperText={errors.email?.message}
           />
           <TextField
@@ -97,7 +106,7 @@ function Login() {
             fullWidth
             label="Password"
             autoComplete="current-password"
-            error={errors !== {}}
+            error={_.has(errors, "password")}
             helperText={errors.password?.message}
           />
           <FormControlLabel
