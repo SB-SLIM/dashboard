@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import userAuthReducer from "./Auth";
 import employeesReducer from "./Employees";
 import modalReducer from './Modal/index';
+import themeReducer from './Theme/index';
 
 const store = configureStore({
   reducer: {
     employees: employeesReducer,
     modal: modalReducer,
-    userAuth: userAuthReducer
+    userAuth: userAuthReducer,
+    theme: themeReducer,
   },
 });
 

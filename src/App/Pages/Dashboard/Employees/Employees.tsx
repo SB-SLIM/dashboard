@@ -10,6 +10,8 @@ import { closeModal, openModal } from "../../../Redux/Modal/modal.slice";
 import Modal from "../../../ui-components/Modal/Modal";
 import { DataGrid } from "@mui/x-data-grid";
 import { employeesColumns } from "./employeesDataSource";
+import { ToastContainer, toast } from "react-toastify";
+import useToast from "../../../Hooks/useToast";
 
 function Employees() {
   const { data, isLoading, error } = useSelector(
@@ -41,17 +43,18 @@ function Employees() {
             startIcon={<ReloadIcon color="primary" size="large" />}
             variant="text"
             size="small"
+            disabled={isLoading}
           >
             reload
           </Button>
           <Button
             variant="outlined"
             size="small"
+            disabled={isLoading}
             onClick={() => dispatch(openModal())}
           >
             New
           </Button>
-
           <Modal
             setOpen={() => dispatch(closeModal())}
             open={isOpen}
@@ -62,8 +65,6 @@ function Employees() {
         </div>
       </div>
       <div className="employees-root_body">
-        {/* <Table data={data} isLoading={isLoading} error={error} /> */}
-
         <DataGrid
           rowsPerPageOptions={[5, 10, 20, 100]}
           columns={employeesColumns}

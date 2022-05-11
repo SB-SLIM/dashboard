@@ -1,7 +1,7 @@
 .app {
   display: grid;
   grid-template-columns:  
-  [side-start] minmax(min-content, 300px) [side-end full-start]  
+  [side-start] minmax(min-content, 340px) [side-end full-start]  
   1fr [center-start] 
   repeat(8, [col-start] minmax(min-content, 12em) [col-end]) 
   [center-end] 1fr [full-end];

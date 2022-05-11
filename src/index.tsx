@@ -11,20 +11,20 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import { Provider } from "react-redux";
 import store from "./App/Redux/store";
-import { ThemeProvider } from "./Theme";
+import ThemeProvider from "./Theme";
 
 if (container) {
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
-      <ThemeProvider>
-        <CssBaseline enableColorScheme />
-        <BrowserRouter>
-          <Provider store={store}>
+      <Provider store={store}>
+        <ThemeProvider>
+          <CssBaseline enableColorScheme />
+          <BrowserRouter>
             <App />
-          </Provider>
-        </BrowserRouter>
-      </ThemeProvider>
+          </BrowserRouter>
+        </ThemeProvider>
+      </Provider>
     </React.StrictMode>
   );
 }

@@ -11,12 +11,14 @@ import {
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { signup } from "../../Redux/Auth/auth.thunk";
 import _ from "lodash";
 import validator from "validator";
+import { RootState } from "../../Redux/store";
+import { ToastContainer } from "react-toastify";
 
 export interface FormLogin {
   email: string;
@@ -25,6 +27,7 @@ export interface FormLogin {
 
 function Login() {
   const defaultValues = { email: "", password: "" };
+  const { isLoading } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -36,10 +39,14 @@ function Login() {
     defaultValues,
   });
 
-  const onSubmit: SubmitHandler<FormLogin> = (data) => {
-    dispatch(signup(data));
-    navigate("/dashboard", { replace: true });
-  };
+  const onSubmit: SubmitHandler<FormLogin> = useCallback(
+    async (data, event) => {
+      event?.preventDefault();
+      await dispatch(signup(data));
+      navigate("/dashboard", { replace: true });
+    },
+    []
+  );
 
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -63,7 +70,6 @@ function Login() {
       },
     },
   };
-  console.log("🚀 ~ file: Login.tsx ~ line 65 ~ Login ~ errors", errors);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -118,9 +124,11 @@ function Login() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            disabled={isLoading}
           >
             Sign In
           </Button>
+          <ToastContainer />
           <Grid container>
             <Grid item xs>
               <Link to="/">Forgot password?</Link>

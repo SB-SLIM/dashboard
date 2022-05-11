@@ -10,15 +10,28 @@ import {
 } from "../../ui-components";
 import { itemsInit } from "./navLinkSource";
 
-import { useTheme as useThemeMUI } from "@mui/material";
-import { useTheme } from "../../../Theme";
+import { useTheme } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setModeTheme } from "../../Redux/Theme/theme.slice";
+import { RootState } from "../../Redux/store";
+import { useMemo } from "react";
 
 function SideBar({ classes }: { classes?: string }) {
-  //useTheme Provider
-  const theme = useThemeMUI();
+  const { themeMode } = useSelector((state: RootState) => state.theme);
 
-  // custom hook switch light/dark mode
-  const setMode = useTheme();
+  const dispatch = useDispatch();
+
+  const theme = useTheme();
+
+  const setMode = useMemo(
+    () => ({
+      // The dark mode switch would invoke this method
+      toggleColorMode: () => {
+        dispatch(setModeTheme());
+      },
+    }),
+    [themeMode]
+  );
 
   return (
     <Box
