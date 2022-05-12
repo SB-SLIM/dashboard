@@ -3,18 +3,16 @@ import { Button, ReloadIcon, Typography } from "../../../ui-components";
 import "./employees.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getEmployees } from "../../../Redux/Employees/employees.thunks";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { RootState } from "../../../Redux/store";
 import AddEmployeeFrom from "../../../Components/Employees/AddEmployee/AddEmployeeForm";
 import { closeModal, openModal } from "../../../Redux/Modal/modal.slice";
 import Modal from "../../../ui-components/Modal/Modal";
 import { DataGrid } from "@mui/x-data-grid";
 import { employeesColumns } from "./employeesDataSource";
-import { ToastContainer, toast } from "react-toastify";
-import useToast from "../../../Hooks/useToast";
 
 function Employees() {
-  const { data, isLoading, error } = useSelector(
+  const { data, isLoading } = useSelector(
     (state: RootState) => state.employees
   );
   const { isOpen } = useSelector((state: RootState) => state.modal);

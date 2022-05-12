@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from '../../Firebase/config'
 import { FormLogin } from "../../Pages/Login/Login";
 
@@ -26,3 +26,16 @@ export const signup: any = createAsyncThunk(
         }
     }
 )
+
+
+export const logout: any = createAsyncThunk(
+    'logout', async (_, thunkAPI) => {
+        await signOut(auth).then(() => {
+            console.log('logout')
+        }).catch((error) => {
+            return thunkAPI.rejectWithValue("There is something wrong");
+        });
+    }
+)
+
+
