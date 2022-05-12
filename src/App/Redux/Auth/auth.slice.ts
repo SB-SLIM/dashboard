@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import useToast from "../../Hooks/useToast";
-import { addToLocalStorage, getFromLocalStorage } from "../../utils/localStorage";
-import { signup } from "./auth.thunk";
+import { addToLocalStorage, getFromLocalStorage, removeFromLocalStorage } from "../../utils/localStorage";
+import { logout, signup } from "./auth.thunk";
 
 
 interface IUser {
@@ -18,7 +18,8 @@ const initialState: IUserAuth = { isLoading: false, user: getFromLocalStorage('u
 const userAuth = createSlice({
     name: "userAuth",
     initialState: initialState,
-    reducers: {},
+    reducers: {
+    },
     extraReducers: {
         [signup.pending]: (state) => {
             state.isLoading = true;
@@ -31,6 +32,21 @@ const userAuth = createSlice({
             addToLocalStorage('user', state.user)
         },
         [signup.rejected]: (state, action) => {
+            state.error = { isError: true, msg: action.payload };
+            useToast(state.error.msg, "error");
+            state.isLoading = false;
+        },
+        [logout.pending]: (state) => {
+            state.isLoading = true;
+        },
+        [logout.fulfilled]: (state) => {
+            state.user = null;
+            state.error = { isError: false, msg: "" }
+            useToast("user logged out successfully", "success");
+            removeFromLocalStorage('user')
+            state.isLoading = false;
+        },
+        [logout.rejected]: (state, action) => {
             state.error = { isError: true, msg: action.payload };
             useToast(state.error.msg, "error");
             state.isLoading = false;
