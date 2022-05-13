@@ -13,7 +13,7 @@ const sizes = {
   large: { width: 65, height: 65 },
 };
 
-function Avatar({ alt, src = DefaultAvatar, size = "medium" }: TAvatar) {
+function Avatar({ alt, src, size = "medium" }: TAvatar) {
   return (
     <>
       <MuiAvatar

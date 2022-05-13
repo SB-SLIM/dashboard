@@ -1,3 +1,4 @@
+import "./login.scss";
 import {
   Avatar,
   Box,
@@ -6,34 +7,46 @@ import {
   Container,
   FormControlLabel,
   Grid,
+  IconButton,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useCallback, useEffect } from "react";
-import { signup } from "../../Redux/Auth/auth.thunk";
+import {
+  googleAuthUser,
+  loginUser,
+  registerUser,
+} from "../../Redux/Auth/auth.thunk";
 import _ from "lodash";
 import validator from "validator";
 import { RootState } from "../../Redux/store";
 import { ToastContainer } from "react-toastify";
+import { setIsMember } from "../../Redux/Auth/auth.slice";
+import GoogleIcon from "@mui/icons-material/Google";
 
 export interface FormLogin {
   email: string;
   password: string;
+  name?: string;
 }
 
 function Login() {
-  const defaultValues = { email: "", password: "" };
-  const { isLoading } = useSelector((state: RootState) => state.userAuth);
+  const defaultValues: FormLogin = { email: "", password: "", name: "" };
+  const { isLoading, isMember } = useSelector(
+    (state: RootState) => state.userAuth
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     reset,
+    clearErrors,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     defaultValues,
@@ -42,19 +55,36 @@ function Login() {
   const onSubmit: SubmitHandler<FormLogin> = useCallback(
     async (data, event) => {
       event?.preventDefault();
-      await dispatch(signup(data));
-      navigate("/dashboard", { replace: true });
+      if (isMember) {
+        await dispatch(loginUser(data));
+        navigate("/dashboard", { replace: true });
+        return;
+      }
+      await dispatch(registerUser(data));
+      dispatch(setIsMember());
     },
     []
   );
 
+  const handleGAuth = async () => {
+    await dispatch(googleAuthUser());
+    navigate("/dashboard", { replace: true });
+  };
+  // const handleClickGbtn = async () => {
+  //   await dispatch(googleAuthUser());
+  // };
+
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ email: "", password: "" });
-    }
-  }, [isSubmitSuccessful]);
+    reset({ email: "", password: "", name: "" });
+
+    clearErrors();
+  }, [isSubmitSuccessful, isMember]);
 
   const registerOptions = {
+    name: {
+      minLength: 3,
+      maxLength: 30,
+    },
     email: {
       required: "Email is required",
       validate: {
@@ -93,6 +123,19 @@ function Login() {
           noValidate
           sx={{ mt: 1 }}
         >
+          {!isMember && (
+            <TextField
+              id="name"
+              {...register("name", registerOptions.name)}
+              margin="normal"
+              fullWidth
+              label="Full name"
+              autoComplete="name"
+              autoFocus
+              error={_.has(errors, "name")}
+              helperText={errors.name?.message}
+            />
+          )}
           <TextField
             id="email"
             {...register("email", registerOptions.email)}
@@ -107,7 +150,7 @@ function Login() {
           <TextField
             id="password"
             type="password"
-            {...register("password", registerOptions.password)}
+            {...register("password", isMember ? {} : registerOptions.password)}
             margin="normal"
             fullWidth
             label="Password"
@@ -126,17 +169,35 @@ function Login() {
             sx={{ mt: 3, mb: 2 }}
             disabled={isLoading}
           >
-            Sign In
+            {isMember ? "Sign In" : "Register"}
           </Button>
           <ToastContainer />
           <Grid container>
             <Grid item xs>
-              <Link to="/">Forgot password?</Link>
+              <Link variant="button" sx={{ cursor: "pointer" }}>
+                Forgot password?
+              </Link>
             </Grid>
             <Grid item>
-              <Link to="/">{"Don't have an account? Sign Up"}</Link>
+              <Link
+                variant="button"
+                sx={{ cursor: "pointer" }}
+                onClick={() => dispatch(setIsMember())}
+              >
+                {"Don't have an account? Sign Up"}
+              </Link>
             </Grid>
           </Grid>
+          <div className="sign-using__root flow mt-large">
+            <div className="sign-using__header">
+              <Typography variant="subtitle1">Or sign up using:</Typography>
+            </div>
+            <div className="sign-using__body">
+              <IconButton className="btn__google" onClick={handleGAuth}>
+                <GoogleIcon />
+              </IconButton>
+            </div>
+          </div>
         </Box>
       </Box>
     </Container>

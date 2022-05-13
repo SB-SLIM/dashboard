@@ -1,52 +1,86 @@
 import { createSlice } from "@reduxjs/toolkit";
 import useToast from "../../Hooks/useToast";
 import { addToLocalStorage, getFromLocalStorage, removeFromLocalStorage } from "../../utils/localStorage";
-import { logout, signup } from "./auth.thunk";
+import { logoutUser, loginUser, registerUser, googleAuthUser } from "./auth.thunk";
 
 
 interface IUser {
-    uid: string, displayName?: string, email: string, photo: string
+    uid: string, displayName?: string, email: string, photo: string,
 }
 export interface IUserAuth {
     isLoading: boolean,
+    isMember: boolean
     error: { isError: boolean, msg: string }
     user: IUser | null
 }
 
-const initialState: IUserAuth = { isLoading: false, user: getFromLocalStorage('user'), error: { isError: false, msg: "" } }
+const initialState: IUserAuth = { isLoading: false, isMember: true, user: getFromLocalStorage('user'), error: { isError: false, msg: "" } }
 
 const userAuth = createSlice({
     name: "userAuth",
     initialState: initialState,
     reducers: {
+        setIsMember: (state) => {
+            state.isMember = !state.isMember
+        }
     },
     extraReducers: {
-        [signup.pending]: (state) => {
+        [loginUser.pending]: (state) => {
             state.isLoading = true;
         },
-        [signup.fulfilled]: (state, action) => {
+        [loginUser.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.user = action.payload;
             state.error = { isError: false, msg: "" }
             useToast("user logged in successfully", "success");
             addToLocalStorage('user', state.user)
         },
-        [signup.rejected]: (state, action) => {
+        [loginUser.rejected]: (state, action) => {
             state.error = { isError: true, msg: action.payload };
             useToast(state.error.msg, "error");
             state.isLoading = false;
         },
-        [logout.pending]: (state) => {
+        [logoutUser.pending]: (state) => {
             state.isLoading = true;
         },
-        [logout.fulfilled]: (state) => {
+        [logoutUser.fulfilled]: (state) => {
             state.user = null;
+            state.isMember = true;
             state.error = { isError: false, msg: "" }
-            useToast("user logged out successfully", "success");
+            useToast("user logged out", "success");
             removeFromLocalStorage('user')
             state.isLoading = false;
         },
-        [logout.rejected]: (state, action) => {
+        [logoutUser.rejected]: (state, action) => {
+            state.error = { isError: true, msg: action.payload };
+            useToast(state.error.msg, "error");
+            state.isLoading = false;
+        },
+        [registerUser.pending]: (state) => {
+            state.isLoading = true;
+        },
+        [registerUser.fulfilled]: (state) => {
+            state.user = null;
+            state.error = { isError: false, msg: "" }
+            useToast("user register successfully", "success");
+            state.isLoading = false;
+        },
+        [registerUser.rejected]: (state, action) => {
+            state.error = { isError: true, msg: action.payload };
+            useToast(state.error.msg, "error");
+            state.isLoading = false;
+        },
+        [googleAuthUser.pending]: (state) => {
+            state.isLoading = true;
+        },
+        [googleAuthUser.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload;
+            state.error = { isError: false, msg: "" }
+            useToast("user logged in successfully", "success");
+            addToLocalStorage('user', state.user)
+        },
+        [googleAuthUser.rejected]: (state, action) => {
             state.error = { isError: true, msg: action.payload };
             useToast(state.error.msg, "error");
             state.isLoading = false;
@@ -54,5 +88,6 @@ const userAuth = createSlice({
     }
 })
 
+export const { setIsMember } = userAuth.actions
 
 export default userAuth.reducer

@@ -66,6 +66,7 @@ export const employeesSlice = createSlice({
       state.isLoading = false;
       state.error = { isError: true, msg: action.error.message };
     },
+
   },
 });
 

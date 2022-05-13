@@ -1,0 +1,20 @@
+.sign-using__root{}
+
+.sign-using__header{
+    text-align: center;
+}
+.sign-using__body{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+
+.btn__google.MuiIconButton-root{
+    background-color: rgba(#de5246, 0.95);
+    color: white;
+}
+
+.btn__google.MuiIconButton-root:hover {
+    background-color: rgba(#de5246, 1);
+}
