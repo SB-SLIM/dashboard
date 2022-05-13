@@ -22,19 +22,16 @@ import {
   Menu,
 } from "../../ui-components";
 import { itemsInit } from "./navLinkSource";
-import LogoutIcon from "@mui/icons-material/Logout";
-
 import { useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { setModeTheme } from "../../Redux/Theme/theme.slice";
 import { RootState } from "../../Redux/store";
 import React, { useMemo } from "react";
-import { closeModal, openModal } from "../../Redux/Modal/modal.slice";
-import { logout } from "../../Redux/Auth/auth.thunk";
+import { logoutUser } from "../../Redux/Auth/auth.thunk";
 
 function SideBar({ classes }: { classes?: string }) {
   const { themeMode } = useSelector((state: RootState) => state.theme);
-
+  const { user } = useSelector((state: RootState) => state.userAuth);
   const dispatch = useDispatch();
 
   const theme = useTheme();
@@ -93,7 +90,7 @@ function SideBar({ classes }: { classes?: string }) {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <Avatar />
+              <Avatar src={user?.photo} />
             </IconButton>
           </Tooltip>
         </Badge>
@@ -101,11 +98,11 @@ function SideBar({ classes }: { classes?: string }) {
           open={open}
           anchorEl={anchorEl}
           handleClose={handleClose}
-          logout={() => dispatch(logout())}
+          logout={() => dispatch(logoutUser())}
         />
         <div className="sidebar-user_info">
           <Typography color="white" variant="subtitle1">
-            Bouchoucha Slim
+            {user?.displayName ? user?.displayName : "Mr Anonymous"}
           </Typography>
           <Typography color="white" variant="subtitle2">
             Web Developer, Tunisia TN

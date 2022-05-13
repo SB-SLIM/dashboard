@@ -4,9 +4,9 @@ import ActionType from "./employees.types";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 
-
+//FIXME: check the type
 export const getEmployees: any = createAsyncThunk(
-  ActionType.GET_EMPLOYEES,
+  'employees/getEmployees',
   async (_, thunkAPI) => {
     const data: any[] = [];
 
@@ -23,8 +23,10 @@ export const getEmployees: any = createAsyncThunk(
   }
 );
 
+
+//FIXME: check the type
 export const addEmployee: any = createAsyncThunk(
-  ActionType.ADD_EMPLOYEES,
+  'employees/addEmployee',
   async (data: object, thunkAPI) => {
     try {
       const res = await addDoc(collection(db, "employees"), data);

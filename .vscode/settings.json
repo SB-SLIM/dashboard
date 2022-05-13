@@ -11,5 +11,12 @@
         "signup",
         "toastify",
         "zipcode"
-    ]
+    ],
+    "todo-tree.tree.hideTreeWhenEmpty": true,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.preferredLightColorTheme": "Default High Contrast Light",
+    "material-icon-theme.activeIconPack": "react_redux",
+    "markdown.extension.syntax.plainTheme": false,
+    "todo-tree.tree.showBadges": false
 }
